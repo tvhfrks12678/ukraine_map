@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
+import { PopupTweet } from './PopupTweet';
 
 export default class SimpleExample extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class SimpleExample extends Component {
       'ロシア軍はウクライナのヘルソンのスーパーマーケットの「Silpo」で略奪',
       'https://twitter.com/markito0171/status/1506043718977134602?s=21'
     );
+
     const mapList = [map4];
 
     const listItems = mapList.map((mapItem) => (
@@ -31,6 +33,45 @@ export default class SimpleExample extends Component {
         </Popup>
       </Marker>
     ));
+
+    const data = [
+      {
+        longitude: '51.8669444',
+        latitude: '33.5244444',
+        twitterId: '1503427182605000713',
+        explanation:
+          'シュミ州のショストカ市にある「インパルス」爆薬工場が被災しました',
+      },
+    ];
+
+    const mapDataList = data.map((value) => {
+      return new MapMemo(
+        value.longitude,
+        value.latitude,
+        value.twitterId,
+        value.explanation,
+        'noting'
+      );
+    });
+
+    const mapDataListMarker = mapDataList.map((mapData) => (
+      <Marker position={[mapData.longitude, mapData.latitude]}>
+        <Popup>
+          <TwitterTweetEmbed tweetId={mapData.twitterId} />
+          {mapData.explanation}
+        </Popup>
+      </Marker>
+    ));
+
+    const testPopup = new MapPopup({
+      longitude: '50.60440601386755',
+      latitude: '30.312805652286137',
+      twitterId: '1506211691490590720',
+      explanation:
+        'ウクライナ軍は、キーウから約40km離れた戦略上重要なモシュン村を制圧した。<br />その近郊では、2週間前から激しい戦闘が繰り広げられていた。',
+    });
+
+    const mapPopup = <PopupTweet />;
 
     return (
       <MapContainer
@@ -79,20 +120,45 @@ export default class SimpleExample extends Component {
           </Popup>
         </Marker>
         {listItems}
+        {mapDataListMarker}
+        {testPopup}
+        {mapPopup}
       </MapContainer>
     );
   }
 }
 
 class MapMemo {
-  constructor(longitude, latitude, twitterId, explanation, twitterUrl) {
+  constructor(longitude, latitude, twitterId, explanation, twitterUrl, tags) {
     this.longitude = longitude;
     this.latitude = latitude;
     this.twitterId = twitterId;
     this.explanation = explanation;
     this.twitter = this.getTwitter(twitterUrl);
+    this.tags = tags;
   }
   getTwitter(twitterUrl) {
     return twitterUrl + 3;
   }
+}
+
+class MapPopup {
+  constructor({ longitude, latitude, twitterId, explanation }) {
+    return (
+      <Marker position={[longitude, latitude]}>
+        <Popup>
+          <TwitterTweetEmbed tweetId={twitterId} options={{ width: 4000 }} />
+          {explanation}
+        </Popup>
+      </Marker>
+    );
+  }
+}
+
+{
+  /* <Component name="Nakayama Kinniku" />
+
+const FunctionalComponent = (props) => {
+	return <h1>Hello, {props.name}</h1>;
+ }; */
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Marker, Popup, Circle } from 'react-leaflet';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
+import { PopupTag } from './PopupTag';
 
 export const MarkerPopup = (props) => {
   const mapData = props.mapData;
@@ -30,23 +30,11 @@ const PopupTags = (tags) => {
   if (!tags.length) {
     return null;
   }
+
   const popupTags = tags.map((tag, index) => {
-    return (
-      <Button
-        variant="outline-info"
-        size="sm"
-        className="m-1"
-        onClick={searchTag}
-        key={index}>
-        {tag}
-      </Button>
-    );
+    return <PopupTag tag={tag} key={index} />;
   });
   return popupTags;
-};
-
-const searchTag = () => {
-  console.log('searchTag');
 };
 
 const CircleMarker = (position, radiusKm) => {

@@ -68,4 +68,13 @@ export const POPUP_DB = [
     radiusKm: 0,
     tags: ['キーウ', '破壊'],
   },
+  {
+    longitude: '44.619508',
+    latitude: '33.506876',
+    twitterId: '1506357313548042243',
+    explanation:
+      'クリミアのセヴァストーポリでロシアの21631型小型ミサイル艦がKalibr-NK巡航ミサイルをウクライナ軍に向けて発射',
+    radiusKm: 2000,
+    tags: ['黒海', 'Kalibr-NK'],
+  },
 ];

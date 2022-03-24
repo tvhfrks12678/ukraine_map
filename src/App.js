@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
-import SimpleExample from './components/simple';
 import MapBase from './features/map/MapBase';
 import Leaflet from 'leaflet';
 Leaflet.Icon.Default.imagePath =

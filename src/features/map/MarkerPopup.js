@@ -1,13 +1,14 @@
 import React from 'react';
-import { Marker, Popup, Circle } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PopupTag } from './PopupTag';
+import { MarkerCircle } from './MarkerCircle';
 
 export const MarkerPopup = (props) => {
   const mapData = props.mapData;
   const position = [mapData.longitude, mapData.latitude];
-  const circle = CircleMarker(position, mapData.radiusKm);
+
   const tags = PopupTags(mapData.tags);
   return (
     <Marker position={position}>
@@ -18,7 +19,7 @@ export const MarkerPopup = (props) => {
         <br />
         {tags}
       </Popup>
-      {circle}
+      <MarkerCircle position={position} />
     </Marker>
   );
 };
@@ -35,11 +36,4 @@ const PopupTags = (tags) => {
     return <PopupTag tag={tag} key={index} />;
   });
   return popupTags;
-};
-
-const CircleMarker = (position, radiusKm) => {
-  if (radiusKm === 0) {
-    return null;
-  }
-  return <Circle center={position} radius={radiusKm * 1000} />;
 };

@@ -4,7 +4,6 @@ export const POPUP_DB = [
     latitude: '30.365479',
     twitterId: '1504492667283062789',
     explanation: 'キーウ',
-    radiusKm: 0,
     tags: ['キーウ', '工場'],
   },
   {
@@ -13,7 +12,6 @@ export const POPUP_DB = [
     twitterId: '1504408541100404736',
     explanation:
       'S-300またはS-400ミサイルシステム用ミサイルの輸送がBaranavichy（Brest地方）で目撃された。少なくとも8発のミサイルが「V」マークの付いたロシアのKamAZトラック2台で輸送された。ナンバープレートに第25地区（ロシア東部軍管区）が記載されていた',
-    radiusKm: 100,
     tags: ['S-300', 'ベラルーシ'],
   },
   {
@@ -76,5 +74,20 @@ export const POPUP_DB = [
       'クリミアのセヴァストーポリでロシアの21631型小型ミサイル艦がKalibr-NK巡航ミサイルをウクライナ軍に向けて発射',
     radiusKm: 2000,
     tags: ['黒海', 'Kalibr-NK'],
+  },
+  {
+    longitude: '46.749590',
+    latitude: '36.773788',
+    twitterId: '1506952240715776009',
+    explanation:
+      'ロシア海軍のアリゲータークラスの着陸船の新しいビデオがウクライナで爆発しました。ロプーチャ級揚水艦2隻も深刻な被害を受けまし',
+    tags: ['アゾフ海', 'トーチ'],
+  },
+  {
+    longitude: '39.18753',
+    latitude: '125.66568',
+    twitterId: '1507114226371817481',
+    explanation: '衛星?',
+    tags: ['北朝鮮', '火星17'],
   },
 ];

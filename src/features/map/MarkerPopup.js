@@ -1,7 +1,6 @@
 import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { PopupTag } from './PopupTag';
 import { MarkerCircle } from './MarkerCircle';
 

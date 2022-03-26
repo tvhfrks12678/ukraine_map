@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { PopupList } from './PopupList';
 import { POPUP_DB } from './PopupDb';
+import { MapsList } from '../maps/mapsList';
 
 export const PopupDataListContext = React.createContext();
 
@@ -28,6 +29,7 @@ export const MapBase = () => {
           <PopupList popupDataList={popupDataList} />
         </PopupDataListContext.Provider>
       </TagSearchWordContext.Provider>
+      <MapsList />
     </MapContainer>
   );
 };

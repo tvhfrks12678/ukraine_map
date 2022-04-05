@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import styles from './Organisms.module.css';
-import { Button } from 'react-bootstrap';
+import { SearchTagList } from '../modules/SearchTagList';
 
 export const Post = () => {
   const params = useParams();
@@ -28,12 +28,9 @@ export const Post = () => {
         <div id="loadingTweetEmbedded"></div>
       </div>
       <div id="tweetEmbeddedContainer"></div>
-      <Button variant="outline-info" size="sm" className="m-1">
-        {'ベラルーシ'}
-      </Button>
-      <Button variant="outline-info" size="sm" className="m-1">
-        {'北朝鮮'}
-      </Button>
+      <div className="py-2">
+        <SearchTagList searchTagList={item.tags} />
+      </div>
     </>
   );
 };

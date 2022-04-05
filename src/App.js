@@ -5,7 +5,7 @@ import Leaflet from 'leaflet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { TopPage } from './components/pages/TopPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { TagSearchList } from './components/templates/TagSearchList';
+import { TagSearchListSidebar } from './components/templates/TagSearchListSidebar';
 import { PostList } from './components/templates/PostList';
 import { Post } from './components/organisms/Post';
 
@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TopPage />}>
           <Route path="" element={<PostList />} />
-          <Route path="tagsearch" element={<TagSearchList />} />
+          <Route path="tagsearch" element={<TagSearchListSidebar />} />
           <Route path="postlist" element={<PostList />} />
           <Route path="post" element={<Post />}>
             <Route path=":postId" element={<Post />} />

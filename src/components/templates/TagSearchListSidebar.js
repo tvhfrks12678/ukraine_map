@@ -2,10 +2,9 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import { SearchTag } from '../atoms/SearchTag';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 import styles from './Templates.module.css';
 
-export const TagSearchList = () => {
+export const TagSearchListSidebar = () => {
   return (
     <>
       <div className={styles.headerSearchTag}>

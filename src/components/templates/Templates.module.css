@@ -14,3 +14,12 @@
 .headerSearchTag {
   padding-left: 12px;
 }
+
+.listExplanation {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}

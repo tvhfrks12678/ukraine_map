@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import styles from './Organisms.module.css';
-// import { Button } from 'react-bootstrap';
-// import { SearchTag } from '../modules/SearchTag';
 import { SearchTagList } from '../modules/SearchTagList';
 
 export const Post = () => {
@@ -17,12 +15,6 @@ export const Post = () => {
   useEffect(() => {
     window.twttr.ready(() => addtweetEmbedded(item.twitterId));
   });
-
-  // const searchTagContentList = (contentList) => {
-  //   return contentList.map((content, index) => {
-  //     return <SearchTag tagName={content} key={index} />;
-  //   });
-  // };
 
   return (
     <>

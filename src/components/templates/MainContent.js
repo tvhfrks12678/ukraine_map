@@ -1,6 +1,11 @@
 import React from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
-import { MarkerPopups } from '../organisms/MarkerPopups';
+import { MarkerTweetMemos } from '../modules/MarkerTweetMemos';
+import 'leaflet/dist/leaflet.css';
+import Leaflet from 'leaflet';
+
+Leaflet.Icon.Default.imagePath =
+  '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/';
 
 export const MainContent = () => {
   const position = [49.538899206736, 31.355015984449953];
@@ -18,7 +23,7 @@ export const MainContent = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MarkerPopups />
+      <MarkerTweetMemos />
     </MapContainer>
   );
 };

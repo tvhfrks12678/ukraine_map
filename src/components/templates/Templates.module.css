@@ -10,12 +10,3 @@
   height: 100vh;
   padding-right: 0px;
 }
-
-.listExplanation {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 15px;
-}

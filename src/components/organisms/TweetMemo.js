@@ -5,12 +5,12 @@ import { useEffect } from 'react';
 import styles from './Organisms.module.css';
 import { SearchTagList } from '../modules/SearchTagList';
 
-export const Post = () => {
+export const TweetMemo = () => {
   const params = useParams();
   const paramId = params.postId;
 
-  const markerPopups = useSelector((state) => state.markerPopups);
-  const item = markerPopups.find((mono) => mono.id === paramId);
+  const tweetMemos = useSelector((state) => state.tweetMemos);
+  const item = tweetMemos.find((mono) => mono.id === paramId);
 
   useEffect(() => {
     window.twttr.ready(() => addtweetEmbedded(item.twitterId));
@@ -28,7 +28,7 @@ export const Post = () => {
         <div id="loadingTweetEmbedded"></div>
       </div>
       <div id="tweetEmbeddedContainer"></div>
-      <div className="py-2">
+      <div className="py-2 d-flex justify-content-end">
         <SearchTagList searchTagList={item.tags} />
       </div>
     </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchTagList } from '../modules/SearchTagList';
+import { SearchTagList } from './SearchTagList';
 
 export const SearchTagTypeList = () => {
   const headerSearchTags = [

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import markerPopupsReducer from './markerPopupsSlice';
+import tweetMemosReducer from './tweetMemosSlice';
 
 export const store = configureStore({
   reducer: {
-    markerPopups: markerPopupsReducer,
+    tweetMemos: tweetMemosReducer,
   },
 });

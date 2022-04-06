@@ -68,17 +68,14 @@ const initialState = [
   },
 ];
 
-const markerPopupsSlice = createSlice({
-  name: 'markerPopups',
+const tweetMemosSlice = createSlice({
+  name: 'tweetMemos',
   initialState,
   reducers: {
-    markerPopupAdded(state, action) {
-      state.push(action.payload);
-    },
-    postDataInit() {
+    tweetMemosInitialization() {
       return initialState;
     },
-    postTagSearch(state, action) {
+    tweetMemosTagSearch(state, action) {
       const searchTag = action.payload;
       return initialState.filter((post) => {
         return post.tags.includes(searchTag);
@@ -87,6 +84,7 @@ const markerPopupsSlice = createSlice({
   },
 });
 
-export const { postDataInit, postTagSearch } = markerPopupsSlice.actions;
+export const { tweetMemosInitialization, tweetMemosTagSearch } =
+  tweetMemosSlice.actions;
 
-export default markerPopupsSlice.reducer;
+export default tweetMemosSlice.reducer;

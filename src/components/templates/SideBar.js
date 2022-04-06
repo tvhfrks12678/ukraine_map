@@ -2,12 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { postDataInit } from '../../stores/markerPopupsSlice';
+import { tweetMemosInitialization } from '../../stores/tweetMemosSlice';
 
 export const SideBar = () => {
   const dispatch = useDispatch();
   const allData = () => {
-    dispatch(postDataInit());
+    dispatch(tweetMemosInitialization());
   };
   return (
     <>

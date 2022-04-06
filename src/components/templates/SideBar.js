@@ -22,16 +22,6 @@ export const SideBar = () => {
             このサイトについて
           </Nav.Link>
         </Nav.Item> */}
-        {/* <Nav.Item>
-          <Nav.Link as={NavLink} to="/tagSearch">
-            タグ検索
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link as={NavLink} to="/postlist">
-            すべて一覧
-          </Nav.Link>
-        </Nav.Item> */}
       </Nav>
     </>
   );

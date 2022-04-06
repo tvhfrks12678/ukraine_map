@@ -3,9 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
 import { MainContent } from './MainContent';
 import { SideBar } from './SideBar';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 import styles from './Templates.module.css';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 export const Main = () => {
   return (

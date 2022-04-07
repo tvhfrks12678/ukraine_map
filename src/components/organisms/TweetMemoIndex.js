@@ -8,7 +8,7 @@ export const TweetMemoIndex = () => {
 
   return tweetMemos.map((tweetMemo) => {
     const explanation = tweetMemo.explanation;
-    const linkPath = `/post/${tweetMemo.id}`;
+    const linkPath = `/tweet-memo/${tweetMemo.id}`;
     return (
       <div className="text-truncate px-3 mb-2" key={tweetMemo.id}>
         <Link to={linkPath} className="link-dark">

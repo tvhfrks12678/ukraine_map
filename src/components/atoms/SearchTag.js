@@ -9,12 +9,14 @@ export const SearchTag = (props) => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const onSearchTagClicked = (searchTag) => {
     dispatch(tweetMemosTagSearch(searchTag));
-    navigate('/');
+    const root_path = '/';
+    navigate(root_path);
   };
 
-  const navigate = useNavigate();
   return (
     <Button
       variant="outline-info"

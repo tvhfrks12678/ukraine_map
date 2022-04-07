@@ -77,8 +77,8 @@ const tweetMemosSlice = createSlice({
     },
     tweetMemosTagSearch(state, action) {
       const searchTag = action.payload;
-      return initialState.filter((post) => {
-        return post.tags.includes(searchTag);
+      return initialState.filter((tweetMemo) => {
+        return tweetMemo.tags.includes(searchTag);
       });
     },
   },

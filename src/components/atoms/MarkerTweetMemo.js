@@ -8,14 +8,18 @@ export const MarkerTweetMemo = (props) => {
 
   const navigate = useNavigate();
 
-  const postId = tweetMemo.id;
+  const markerCliked = (navigate) => {
+    const tweetMemoId = tweetMemo.id;
+    const tweetMemoPath = 'tweet-path';
+    navigate(`/${tweetMemoPath}/${tweetMemoId}`);
+  };
 
   return (
     <Marker
       position={position}
       eventHandlers={{
         click: () => {
-          navigate(`/post/${postId}`);
+          markerCliked(navigate);
         },
       }}></Marker>
   );

@@ -5,6 +5,7 @@ import { TopPage } from './components/pages/TopPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TweetMemoIndex } from './components/organisms/TweetMemoIndex';
 import { TweetMemo } from './components/organisms/TweetMemo';
+import { NoMatchingUrl } from './components/pages/NoMutchingUrl';
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
       <Routes>
         <Route path="/" element={<TopPage />}>
           <Route path="" element={<TweetMemoIndex />} />
-          <Route path="post" element={<TweetMemo />}>
-            <Route path=":postId" element={<TweetMemo />} />
+          <Route path="tweet-memo" element={<TweetMemo />}>
+            <Route path=":tweetMemoId" element={<TweetMemo />} />
           </Route>
         </Route>
+        <Route path="*" element={<NoMatchingUrl />} />
       </Routes>
     </BrowserRouter>
   );

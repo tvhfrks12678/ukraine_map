@@ -7,7 +7,7 @@ import { SearchTagList } from '../modules/SearchTagList';
 
 export const TweetMemo = () => {
   const params = useParams();
-  const paramId = params.postId;
+  const paramId = params.tweetMemoId;
 
   const tweetMemos = useSelector((state) => state.tweetMemos);
   const item = tweetMemos.find((mono) => mono.id === paramId);
@@ -18,7 +18,7 @@ export const TweetMemo = () => {
 
   return (
     <>
-      <div className={styles.postExplation}>
+      <div className={styles.tweetMemoExplation}>
         <label className="fw-bold">メモ</label>
         <br />
         {item.explanation}

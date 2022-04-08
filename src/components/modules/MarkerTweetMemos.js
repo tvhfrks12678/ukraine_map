@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { MarkerTweetMemo } from '../atoms/MarkerTweetMemo';
+import { MarkerTweetMemo } from './MarkerTweetMemo';
 
 export const MarkerTweetMemos = () => {
   const tweetMemos = useSelector((state) => state.tweetMemos);

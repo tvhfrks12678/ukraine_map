@@ -10,7 +10,7 @@ export const MarkerTweetMemo = (props) => {
 
   const markerCliked = (navigate) => {
     const tweetMemoId = tweetMemo.id;
-    const tweetMemoPath = 'tweet-path';
+    const tweetMemoPath = 'tweet-memo';
     navigate(`/${tweetMemoPath}/${tweetMemoId}`);
   };
 

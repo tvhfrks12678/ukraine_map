@@ -13,17 +13,17 @@ export const SideBarNav = () => {
   const root_path = '/';
   return (
     <>
-      <Nav className="pb-2">
+      <Nav className="mb-4 mt-2 fw-bold">
         <Nav.Item>
           <Nav.Link as={NavLink} to={root_path} onClick={allDisplayClicked}>
-            すべて表示
+            すべて一覧
           </Nav.Link>
         </Nav.Item>
-        {/* <Nav.Item>
-			<Nav.Link as={NavLink} to="/">
-				このサイトについて
-			</Nav.Link>
-		</Nav.Item> */}
+        <Nav.Item>
+          <Nav.Link as={NavLink} to="/about">
+            サイト概要
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
     </>
   );

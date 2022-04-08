@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TweetMemoIndex } from './components/organisms/TweetMemoIndex';
 import { TweetMemo } from './components/organisms/TweetMemo';
 import { NoMatchingUrl } from './components/pages/NoMutchingUrl';
+import { SidebarAbout } from './components/modules/SidebarAbout';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="tweet-memo" element={<TweetMemo />}>
             <Route path=":tweetMemoId" element={<TweetMemo />} />
           </Route>
+          <Route path="about" element={<SidebarAbout />} />
         </Route>
         <Route path="*" element={<NoMatchingUrl />} />
       </Routes>

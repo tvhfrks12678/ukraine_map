@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { SearchTagList } from '../modules/SearchTagList';
 import { mapContext } from '../templates/Main';
+import { useDispatch } from 'react-redux';
+import { markerSelectInitialization } from '../../stores/markerSelectSlice';
 
 export const TweetMemoIndex = () => {
   const tweetMemos = useSelector((state) => state.tweetMemos);
@@ -12,6 +14,12 @@ export const TweetMemoIndex = () => {
   const tweetMemoLinkClicked = (position) => {
     map.setView(position, map.getZoom());
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(markerSelectInitialization());
+  });
 
   return tweetMemos.map((tweetMemo) => {
     const explanation = tweetMemo.explanation;

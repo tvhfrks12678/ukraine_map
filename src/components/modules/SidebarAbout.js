@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AboutRow } from '../atoms/SidebarAboutRow';
+import { useDispatch } from 'react-redux';
+import { markerSelectInitialization } from '../../stores/markerSelectSlice';
 
 const ABOUT_ROW_LIST = [
   {
@@ -23,6 +25,12 @@ const ABOUT_ROW_LIST = [
 ];
 
 export const SidebarAbout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(markerSelectInitialization());
+  });
+
   return ABOUT_ROW_LIST.map((aboutRow, index) => {
     return <AboutRow aboutRow={aboutRow} key={index} />;
   });

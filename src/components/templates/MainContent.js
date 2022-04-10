@@ -4,6 +4,7 @@ import { MarkerTweetMemos } from '../modules/MarkerTweetMemos';
 import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import { mapContext } from './Main';
+import { MarkerSelected } from '../atoms/MarkerSelected';
 
 Leaflet.Icon.Default.imagePath =
   '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/';
@@ -27,6 +28,7 @@ export const MainContent = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MarkerTweetMemos />
+      <MarkerSelected />
     </MapContainer>
   );
 };

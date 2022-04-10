@@ -13,7 +13,7 @@ export const SideBarNav = () => {
   const root_path = '/';
   return (
     <>
-      <Nav className="mb-4 mt-2 fw-bold">
+      <Nav className="mb-3 mt-2 fw-bold">
         <Nav.Item>
           <Nav.Link as={NavLink} to={root_path} onClick={allDisplayClicked}>
             すべて一覧

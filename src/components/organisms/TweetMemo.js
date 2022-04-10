@@ -4,16 +4,24 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import styles from './Organisms.module.css';
 import { SearchTagList } from '../modules/SearchTagList';
+import { useDispatch } from 'react-redux';
+import { markerSelectAdded } from '../../stores/markerSelectSlice';
 
 export const TweetMemo = () => {
   const params = useParams();
   const paramId = params.tweetMemoId;
 
   const tweetMemos = useSelector((state) => state.tweetMemos);
-  const item = tweetMemos.find((mono) => mono.id === paramId);
+  const tweetMemo = tweetMemos.find((mono) => mono.id === paramId);
+
+  const dispatch = useDispatch();
+
+  const positionSelected = [tweetMemo.longitude, tweetMemo.latitude];
 
   useEffect(() => {
-    window.twttr.ready(() => addtweetEmbedded(item.twitterId));
+    window.twttr.ready(() => addtweetEmbedded(tweetMemo.twitterId));
+
+    dispatch(markerSelectAdded(positionSelected));
   });
 
   return (
@@ -21,7 +29,7 @@ export const TweetMemo = () => {
       <div className={styles.tweetMemoExplation}>
         <label className="fw-bold">メモ</label>
         <br />
-        {item.explanation}
+        {tweetMemo.explanation}
         <br />
       </div>
       <div className="d-flex justify-content-center">
@@ -29,7 +37,7 @@ export const TweetMemo = () => {
       </div>
       <div id="tweetEmbeddedContainer"></div>
       <div className="py-2 d-flex justify-content-end">
-        <SearchTagList searchTagList={item.tags} />
+        <SearchTagList searchTagList={tweetMemo.tags} />
       </div>
     </>
   );

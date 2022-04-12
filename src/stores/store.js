@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import tweetMemosReducer from './tweetMemosSlice';
-import markerSelectSlice from './markerSelectSlice';
+import positionOfSelectedMakerSlice from './positionOfSelectedMakerSlice';
 
 export const store = configureStore({
   reducer: {
     tweetMemos: tweetMemosReducer,
-    markerSelect: markerSelectSlice,
+    positionOfSelectedMaker: positionOfSelectedMakerSlice,
   },
 });

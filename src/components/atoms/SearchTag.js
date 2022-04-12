@@ -4,17 +4,18 @@ import { useDispatch } from 'react-redux';
 import { tweetMemosTagSearch } from '../../stores/tweetMemosSlice';
 import { useNavigate } from 'react-router-dom';
 
-export const SearchTag = (props) => {
-  const tagName = props.tagName;
+const ROOT_PATH = '/';
 
+export const SearchTag = (props) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const onSearchTagClicked = (searchTag) => {
-    dispatch(tweetMemosTagSearch(searchTag));
-    const root_path = '/';
-    navigate(root_path);
+  const tagName = props.tagName;
+
+  const onSearchTagClicked = () => {
+    dispatch(tweetMemosTagSearch(tagName));
+    navigate(ROOT_PATH);
   };
 
   return (
@@ -22,9 +23,7 @@ export const SearchTag = (props) => {
       variant="outline-info"
       size="sm"
       className="m-1"
-      onClick={() => {
-        onSearchTagClicked(tagName);
-      }}>
+      onClick={onSearchTagClicked}>
       {tagName}
     </Button>
   );

@@ -5,23 +5,26 @@ import { useEffect } from 'react';
 import styles from './Organisms.module.css';
 import { SearchTagList } from '../modules/SearchTagList';
 import { useDispatch } from 'react-redux';
-import { markerSelectAdded } from '../../stores/markerSelectSlice';
+import { positionOfSelectedMakerAdded } from '../../stores/positionOfSelectedMakerSlice';
 
 export const TweetMemo = () => {
+  const dispatch = useDispatch();
+
   const params = useParams();
   const paramId = params.tweetMemoId;
 
   const tweetMemos = useSelector((state) => state.tweetMemos);
   const tweetMemo = tweetMemos.find((mono) => mono.id === paramId);
 
-  const dispatch = useDispatch();
-
-  const positionSelected = [tweetMemo.longitude, tweetMemo.latitude];
-
   useEffect(() => {
     window.twttr.ready(() => addtweetEmbedded(tweetMemo.twitterId));
 
-    dispatch(markerSelectAdded(positionSelected));
+    dispatch(
+      positionOfSelectedMakerAdded({
+        longitude: tweetMemo.longitude,
+        latitude: tweetMemo.latitude,
+      })
+    );
   });
 
   return (

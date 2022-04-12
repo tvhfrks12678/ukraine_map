@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { AboutRow } from '../atoms/SidebarAboutRow';
 import { useDispatch } from 'react-redux';
-import { markerSelectInitialization } from '../../stores/markerSelectSlice';
+import { positionOfSelectedMakerInitialization } from '../../stores/positionOfSelectedMakerSlice';
 
 const ABOUT_ROW_LIST = [
   {
@@ -10,13 +10,18 @@ const ABOUT_ROW_LIST = [
       'ロシアのウクライナ全面侵略に関する地図とTwitterを利用した個人的なメモサイト',
   },
   {
+    item: '制作理由',
+    content:
+      '地図とツイートを紐付ける事でウクライナのどこで何が起こっているか分かりやすくなると考えたため',
+  },
+  {
     item: '技術',
     content:
       'React、React Leaflet、Redux、React Router、React-Bootstrap、Vercel',
   },
   {
     item: '制作時間',
-    content: '約40時間',
+    content: '約50時間',
   },
   {
     item: 'GitHub',
@@ -28,7 +33,7 @@ export const SidebarAbout = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(markerSelectInitialization());
+    dispatch(positionOfSelectedMakerInitialization());
   });
 
   return ABOUT_ROW_LIST.map((aboutRow, index) => {

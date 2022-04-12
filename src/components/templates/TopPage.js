@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from '../templates/Header';
-import { Main } from '../templates/Main';
+import { Header } from '../organisms/Header';
+import { Main } from '../organisms/Main';
 
 export const TopPage = () => {
   return (

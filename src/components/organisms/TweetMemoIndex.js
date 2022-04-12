@@ -2,28 +2,30 @@ import React, { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { SearchTagList } from '../modules/SearchTagList';
-import { mapContext } from '../templates/Main';
+import { mapContext } from '../organisms/Main';
 import { useDispatch } from 'react-redux';
-import { markerSelectInitialization } from '../../stores/markerSelectSlice';
+import { positionOfSelectedMakerInitialization } from '../../stores/positionOfSelectedMakerSlice';
+
+const TWEET_MEMO_PATH = 'tweet-memo';
 
 export const TweetMemoIndex = () => {
   const tweetMemos = useSelector((state) => state.tweetMemos);
 
   const { map } = useContext(mapContext);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(positionOfSelectedMakerInitialization());
+  });
+
   const tweetMemoLinkClicked = (position) => {
     map.setView(position, map.getZoom());
   };
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(markerSelectInitialization());
-  });
-
   return tweetMemos.map((tweetMemo) => {
     const explanation = tweetMemo.explanation;
-    const linkPath = `/tweet-memo/${tweetMemo.id}`;
+    const linkPath = `/${TWEET_MEMO_PATH}/${tweetMemo.id}`;
     const potition = [tweetMemo.longitude, tweetMemo.latitude];
 
     return (

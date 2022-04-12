@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { TopPage } from './components/pages/TopPage';
+import { TopPage } from './components/templates/TopPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TweetMemoIndex } from './components/organisms/TweetMemoIndex';
 import { TweetMemo } from './components/organisms/TweetMemo';
-import { NoMatchingUrl } from './components/pages/NoMutchingUrl';
+import { NoMatchingUrl } from './components/templates/NoMutchingUrl';
 import { SidebarAbout } from './components/modules/SidebarAbout';
 
 function App() {

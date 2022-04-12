@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 const SEPALATOR = ':';
+const URL_REG = '^https://';
 
 export const AboutRow = (props) => {
   const aboutRow = props.aboutRow;
@@ -9,7 +10,7 @@ export const AboutRow = (props) => {
   const content = aboutRow.content;
 
   const contentForDisplay = () => {
-    const regex_url = new RegExp('^https://');
+    const regex_url = new RegExp(URL_REG);
     if (regex_url.test(content)) {
       return <a href={content}>{content}</a>;
     }

@@ -2,8 +2,7 @@ import React from 'react';
 import { Marker } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 import { MarkerTooltip } from '../atoms/MarkerTooltip';
-
-const TWEET_MEMO_PATH = 'tweet-memo';
+import { PATH } from '../../utils/constants';
 
 export const MarkerTweetMemo = (props) => {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ export const MarkerTweetMemo = (props) => {
 
   const markerCliked = () => {
     const tweetMemoId = tweetMemo.id;
-    navigate(`/${TWEET_MEMO_PATH}/${tweetMemoId}`);
+    navigate(`${PATH.TWEET_MEMO}${tweetMemoId}`);
   };
 
   return (

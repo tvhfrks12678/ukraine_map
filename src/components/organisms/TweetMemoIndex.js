@@ -5,8 +5,7 @@ import { SearchTagList } from '../modules/SearchTagList';
 import { mapContext } from '../organisms/Main';
 import { useDispatch } from 'react-redux';
 import { positionOfSelectedMakerInitialization } from '../../stores/positionOfSelectedMakerSlice';
-
-const TWEET_MEMO_PATH = 'tweet-memo';
+import { PATH } from '../../utils/constants';
 
 export const TweetMemoIndex = () => {
   const tweetMemos = useSelector((state) => state.tweetMemos);
@@ -25,7 +24,7 @@ export const TweetMemoIndex = () => {
 
   return tweetMemos.map((tweetMemo) => {
     const explanation = tweetMemo.explanation;
-    const linkPath = `/${TWEET_MEMO_PATH}/${tweetMemo.id}`;
+    const linkPath = `${PATH.TWEET_MEMO}${tweetMemo.id}`;
     const potition = [tweetMemo.longitude, tweetMemo.latitude];
 
     return (

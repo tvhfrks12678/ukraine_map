@@ -3,8 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { tweetMemosTagSearch } from '../../stores/tweetMemosSlice';
 import { useNavigate } from 'react-router-dom';
-
-const ROOT_PATH = '/';
+import { PATH } from '../../utils/constants';
 
 export const SearchTag = (props) => {
   const dispatch = useDispatch();
@@ -15,7 +14,7 @@ export const SearchTag = (props) => {
 
   const onSearchTagClicked = () => {
     dispatch(tweetMemosTagSearch(tagName));
-    navigate(ROOT_PATH);
+    navigate(PATH.ROOT);
   };
 
   return (

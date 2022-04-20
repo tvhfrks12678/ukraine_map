@@ -7,6 +7,7 @@ import { TweetMemoIndex } from './components/organisms/TweetMemoIndex';
 import { TweetMemo } from './components/organisms/TweetMemo';
 import { NoMatchingUrl } from './components/templates/NoMutchingUrl';
 import { SidebarAbout } from './components/modules/SidebarAbout';
+import { SidebarSearchTagIndex } from './components/organisms/SidebarSearchTagIndex';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <Route path="" element={<TweetMemoIndex />} />
           <Route path="tweet-memo" element={<TweetMemo />}>
             <Route path=":tweetMemoId" element={<TweetMemo />} />
+          </Route>
+          <Route path="tag" element={<SidebarSearchTagIndex />}>
+            <Route path=":tag" element={<SidebarSearchTagIndex />}></Route>
           </Route>
           <Route path="about" element={<SidebarAbout />} />
         </Route>

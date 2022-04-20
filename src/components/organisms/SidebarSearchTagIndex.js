@@ -1,23 +1,29 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectAllTweetMemos } from '../../stores/tweetMemosSlice';
-import { fetchTweetMemos } from '../../stores/tweetMemosSlice';
+import { useParams } from 'react-router-dom';
+import {
+  fetchTweetMemosByTag,
+  selectAllTweetMemos,
+} from '../../stores/tweetMemosSlice';
 import { SidebarIndex } from '../modules/SidebarIndex';
 import { positionOfSelectedMakerInitialization } from '../../stores/positionOfSelectedMakerSlice';
 
-export const TweetMemoIndex = () => {
+export const SidebarSearchTagIndex = () => {
   const dispatch = useDispatch();
   const tweetMemos = useSelector(selectAllTweetMemos);
+
+  const params = useParams();
+  const tag = params.tag;
 
   const tweetMemoStatus = useSelector((state) => state.tweetMemos.status);
   const error = useSelector((state) => state.tweetMemos.error);
 
   useEffect(() => {
     if (tweetMemoStatus === 'idle') {
-      dispatch(fetchTweetMemos());
+      dispatch(fetchTweetMemosByTag(tag));
     }
     dispatch(positionOfSelectedMakerInitialization());
-  }, [tweetMemoStatus, dispatch]);
+  }, [tweetMemoStatus, dispatch, tag]);
 
   let content = null;
 

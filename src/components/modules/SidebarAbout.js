@@ -17,11 +17,11 @@ const ABOUT_ROW_LIST = [
   {
     item: '技術',
     content:
-      'React、React Leaflet、Redux、React Router、React-Bootstrap、Vercel',
+      'React、React Leaflet、Redux、React Router、React-Bootstrap、Vercel、Firestore',
   },
   {
     item: '制作時間',
-    content: '約50時間',
+    content: '約70時間',
   },
   {
     item: 'GitHub',

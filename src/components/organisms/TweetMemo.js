@@ -1,31 +1,56 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import styles from './Organisms.module.css';
 import { SearchTagList } from '../modules/SearchTagList';
 import { useDispatch } from 'react-redux';
 import { positionOfSelectedMakerAdded } from '../../stores/positionOfSelectedMakerSlice';
+import {
+  selectAllTweetMemos,
+  tweetMemoSet,
+} from '../../stores/tweetMemosSlice';
+import { getDocs, query, where, documentId } from 'firebase/firestore';
+
+import { ukraineInvasionMapsRef } from '../../utils/firebaseConfig';
+import { TweetMemoEntity } from '../../entities/tweetMemos/TweetMemoEntity';
 
 export const TweetMemo = () => {
+  const [tweetMemo, setTweetMemo] = useState('');
   const dispatch = useDispatch();
+  const tweetMemos = useSelector(selectAllTweetMemos);
 
   const params = useParams();
   const paramId = params.tweetMemoId;
 
-  const tweetMemos = useSelector((state) => state.tweetMemos);
-  const tweetMemo = tweetMemos.find((mono) => mono.id === paramId);
+  const getTweetMemoById = useCallback(async () => {
+    const stateQuery = query(
+      ukraineInvasionMapsRef,
+      where(documentId(), '==', paramId)
+    );
+
+    const querySnapshot = await getDocs(stateQuery);
+
+    const doc = querySnapshot.docs[0];
+
+    return TweetMemoEntity.getByQueryDocumentSnapshot(doc);
+  }, [paramId]);
 
   useEffect(() => {
-    window.twttr.ready(() => addtweetEmbedded(tweetMemo.twitterId));
+    getTweetMemoById().then((tweetMemoById) => {
+      setTweetMemo(tweetMemoById);
+      window.twttr.ready(() => addtweetEmbedded(tweetMemoById.twitterId));
 
-    dispatch(
-      positionOfSelectedMakerAdded({
-        longitude: tweetMemo.longitude,
-        latitude: tweetMemo.latitude,
-      })
-    );
-  });
+      if (tweetMemos.length === 0) {
+        dispatch(tweetMemoSet(tweetMemoById));
+      }
+      dispatch(
+        positionOfSelectedMakerAdded({
+          longitude: tweetMemoById.longitude,
+          latitude: tweetMemoById.latitude,
+        })
+      );
+    });
+  }, [getTweetMemoById, dispatch, tweetMemos]);
 
   return (
     <>

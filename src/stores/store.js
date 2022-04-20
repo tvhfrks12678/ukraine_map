@@ -7,4 +7,8 @@ export const store = configureStore({
     tweetMemos: tweetMemosReducer,
     positionOfSelectedMaker: positionOfSelectedMakerSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
